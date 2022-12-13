@@ -1,0 +1,16 @@
+[
+	{
+		"id": 1,
+		"name": "Lionel",
+		"lastname": "Messi",
+		"age": 24,
+		"curse": "Argentina"
+	},
+	{
+		"id": 2,
+		"name": "Angel",
+		"lastname": "Di Maria",
+		"age": 34,
+		"curse": "Argentina"
+	}
+]
