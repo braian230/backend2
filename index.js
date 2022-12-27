@@ -37,3 +37,29 @@ const queries = async ()=>{
 }
 
 queries()
+
+const express = require('express');
+
+const apiRoutes = require('./pets/pets.routes');
+const usersRoutes = require('./users/users.routes');
+
+
+const PORT = 8080;
+const app = express();
+const cors = require('cors');
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('src/public'));
+app.use(cors());
+app.use((error, req, res, next)=>{
+    console.log(`[${req.method}]=>${req.url}`);
+    console.log(`Time: ${new Date().toDateString(
+        
+    )}`);
+})
+
+app.listen(PORT, ()=>{
+    console.log("Listening on port =>", PORT);
+})
