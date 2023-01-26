@@ -10,21 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomasmurphy/backend.git"
+    "url": "git+https://github.com/braian230/backend2.git"
   },
-  "author": "Tomas Murphy",
+  "author": "Ariel Moreno",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tomasmurphy/backend/issues"
+    "url": "https://github.com/braian230/backend2.git"
   },
-  "homepage": "https://github.com/tomasmurphy/backend#readme",
+  "homepage": "https://github.com/braian230/backend2#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "moment": "^2.29.4",
+    "mongoose": "^6.8.4",
     "nodemon": "^2.0.20"
   },
-  "keywords": [],
-  "devDependencies": {}
+  "keywords": []
 }

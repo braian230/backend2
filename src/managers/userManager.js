@@ -1,10 +1,14 @@
+import fs from 'fs';
+import path from 'path';
+import __dirname from '../../utils.js';
+
 const fs = require("fs/promises")
 const {existsSync} = require("fs")
 
 class UserManager{
 
-    constructor(path){
-        this.path = path
+    constructor(filename){
+        this.filePath = path.join(__dirname, `/files/${filename}`);
     }
 
     async readFile(){

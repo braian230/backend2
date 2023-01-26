@@ -1,30 +1,30 @@
-const express = require('express')
-const handlebars = require('express-handlebars')
-const apiRoutes = require('./routers/app.routers')
-const viewsRoutes = require('./routers/views/views.router')
-const path = require('path')
-const { Server } = require ('socket.io')
+import express from "express";
 
-const PORT = 8080
-const app = express()
+import "./config/dbConfig.js "
+import { UserModel } from "./models/user.models";
 
-app.use(express.json())
-app.use(express.urlencoded({ extended:true }))
-app.engine('handlebars', handlebars.engine())
-app.set('views', __dirname + '/views')
-app.set('view engine', 'handlebars')
-app.use('/statics', express.static(path.resolve(__dirname, '../public')))
-app.use('/api', apiRoutes)
-app.use('/', viewsRoutes)
+//instancia del servidor de express
+const app = express();
+//configuraciones del servidor
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.static("public"));
 
+// Ejecucion del servidor
+const PORT = 8080;
+const server = app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+})
+server.on('error', error => console.log(`Error in server ${error}`));
 
-const httpServer = app.listen(PORT, ()=>{
-    console.log('Listening on port => ', PORT)
+app.get("medida", async(req,res)=>{
+    try{
+        const response = await UserModel.find({email:"sbengerqr@disqus.com"}).explain(executionsStats);
+    }
+    catch(error){
+        res.send(error)
+    }
+
 })
 
-const socketServer = new Server(httpServer) 
 
-socketServer.on('connection', socket => {
-    console.log('new client connected')
-    app.set('socket', socket)
-})
