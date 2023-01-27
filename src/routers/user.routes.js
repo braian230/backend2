@@ -1,10 +1,9 @@
 import express from "express";
 import { UserMongoManager } from "../daos/mongoManagers/user.manager.js";
- import {options} from "../config/options.js";
- import { UsersFileManager } from "../daos/fileManagers/user.manager.js";
 
-const userService = new UsersFileManager(options.fileSystem.usersFileName);
-//const userService = new UserMongoManager();
+
+
+const userService = new UserMongoManager();
 
 const router = express.Router();
 

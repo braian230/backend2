@@ -1,7 +1,7 @@
 import express from "express";
 
 import "./config/dbConfig.js "
-import { UserModel } from "./models/user.models";
+
 
 //instancia del servidor de express
 const app = express();
@@ -17,14 +17,5 @@ const server = app.listen(PORT, () => {
 })
 server.on('error', error => console.log(`Error in server ${error}`));
 
-app.get("medida", async(req,res)=>{
-    try{
-        const response = await UserModel.find({email:"sbengerqr@disqus.com"}).explain(executionsStats);
-    }
-    catch(error){
-        res.send(error)
-    }
-
-})
 
 
